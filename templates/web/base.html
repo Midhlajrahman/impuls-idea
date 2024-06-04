@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="ZXX">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="Site keywords here" />
+    <meta name="description" content="#" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Site Title -->
+    <title>Impuls Idea</title>
+
+    <!-- Fav Icon -->
+    <link rel="icon" href="{% static 'web/images/favicon.png' %}" />
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'web/css/animate.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'web/css/aos.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'web/css/font-awesome-all.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'web/css/slick-bundle.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'web/css/video-popup.min.css'%}" />
+    
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'web/css/theme-default.css'%}" />
+    <link rel="stylesheet" href="{% static 'web/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'web/css/custom.css' %}">
+  </head>
+
+  <body class="home-6">
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="preloader-inner">
+        <div class="preloader-icon">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- End Preloader -->
+
+ <!-- Mobile Menu Modal -->
+ <div
+ class="modal offcanvas-modal inflanar-mobile-menu fade bg-white"
+ id="offcanvas-modal">
+ <div class="modal-dialog offcanvas-dialog">
+   <div class="modal-content">
+     <div class="modal-header offcanvas-header">
+       <button
+         type="button"
+         class="btn-close"
+         data-bs-dismiss="modal"
+         aria-label="Close"
+       >
+         <i class="fas fa-remove"></i>
+       </button>
+     </div>
+     <!-- offcanvas-logo-start -->
+     <div class="offcanvas-logo">
+       <a href="{% url "web:index" %}"><img src="{% static 'web/images/h6-logo.svg' %}" alt="#" /></a>
+     </div>
+     <!-- offcanvas-logo-end -->
+     <!-- offcanvas-menu start -->
+     <nav id="offcanvas-menu" class="offcanvas-menu">
+       <!-- Main Menu -->
+       <ul class="nav-menu menu navigation list-none">
+        <li><a href="{% url "web:index" %}" class="{% if is_index %} active {% endif %}">Home</a></li>
+        <li><a href="{% url "web:about" %}" class="{% if is_about %} active {% endif %}">Company</a></li>
+        <li><a href="{% url "web:products" %}" {% if is_products %} active {% endif %}>Products</a></li>
+        <li><a href="{% url "web:service" %}" {% if is_service %} active {% endif %}>Service</a></li>
+        <li><a href="{% url "web:contact" %}" {% if is_contact %} active {% endif %}>Contact</a></li>
+       </ul>
+       <!-- End Main Menu -->
+     </nav>
+     <!-- offcanvas-menu end -->
+   </div>
+ </div>
+</div>
+<!-- End Mobile Menu Modal -->
+
+{% if request.resolver_match.url_name == 'index' %}
+  {% include "web/partials/header.html" %}
+{% else %}
+  {% include "web/partials/header-2.html" %}
+{% endif %}
+
+{% block content %}
+
+{% endblock  %}
+{% include "web/partials/footer.html" %}
+
+    <!-- Copyright  -->
+    <div class="footer-copyright footer-copyright--v3">
+      <div class="container">
+        <div class=" align-items-center gap-3 justify-content-between">
+          <div class="footer-copyright__text text">
+            <p class="text-center">&copy; {% now 'Y' %} IMPULS IDEA - Developed by  <a href="https://gedexo.com/" target="__blank">Gedexo Technologies</a></p>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+    <!-- End Copyright  -->
+
+    <!-- Scrool Top -->
+    <a href="#" class="scrollToTop"><i class="fa-solid fa-arrow-up"></i></a>
+
+    <!-- Plugins JS -->
+    <script src="{% static 'web/js/jquery.min.js'%}"></script>
+    <script src="{% static 'web/js/jquery-migrate.js'%}"></script>
+    <script src="{% static 'web/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'web/js/waypoints.min.js'%}"></script>
+    <script src="{% static 'web/js/jquery.counterup.min.js'%}"></script>
+    <script src="{% static 'web/js/slick-bundle.min.js'%}"></script>
+    <script src="{% static 'web/js/circle.js'%}"></script>
+    <script src="{% static 'web/js/aos.min.js'%}"></script>
+    <script src="{% static 'web/js/custom.js'%}"></script>
+    <script src="{% static 'web/js/gsap.min.js'%}"></script>
+    <script src="{% static 'web/js/ajax.js' %}"></script>
+    <script src="{% static 'web/js/sweetalert2.all.min.js' %}"></script>
+    <script>
+      $(".h6-partner-slider").slick({
+        infinite: true,
+        speed: 300,
+        slidesToShow: 8,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        speed: 500,
+        slide: "div",
+        responsive: [
+          {
+            breakpoint: 960,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 540,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      });
+
+      $(".h6-headline-slider-2").slick({
+        infinite: true,
+        slidesToShow: 3,
+        variableWidth: true,
+        centerMode: true,
+        rtl: true,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 0,
+        speed: 15000,
+        slide: "h1",
+        cssEase: "linear",
+      });
+      $(".h6-headline-slider").slick({
+        infinite: true,
+        slidesToShow: 3,
+        variableWidth: true,
+        centerMode: true,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 0,
+        speed: 15000,
+        slide: "h1",
+        cssEase: "linear",
+      });
+      // h6-core-features-slider
+      $(".h6-core-features-slider").slick({
+        infinite: true,
+        slidesToShow: 3,
+        variableWidth: true,
+        centerMode: true,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 0,
+        speed: 14000,
+        slide: "div",
+        cssEase: "linear",
+      });
+      $(".h6-core-features-slider-2").slick({
+        infinite: true,
+        slidesToShow: 3,
+        variableWidth: true,
+        rtl: true,
+        centerMode: true,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 0,
+        speed: 14000,
+        slide: "div",
+        cssEase: "linear",
+      });
+
+      $(".h6-product-slider").slick({
+        infinite: true,
+        speed: 300,
+        slidesToShow: 5,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        speed: 500,
+        slide: "div",
+        responsive: [
+          {
+            breakpoint: 960,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 540,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      });
+    </script>
+  </body>
+</html>

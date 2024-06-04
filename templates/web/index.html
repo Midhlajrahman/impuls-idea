@@ -1,0 +1,280 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="">
+    <!-- Hero Banner -->
+    <section class="" style="background-image: url('{% static 'web/images/h6-hero-bg.png' %}')">
+      <div class="container h6-hero-wrapper">
+        <div class="row">
+          <div class="col-lg-12 position-relative" data-aos="fade-right">
+            <div class="text-center">
+              <h1 class="text-center">{{banner.title}}</h1>
+              <p>
+                {{banner.sub_title}}
+              </p>
+              <a href="{% url "web:contact" %}" class="h6-btn-primary w-fit mx-auto h6-header-btn-primary"><span>GET IN TOUCH</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <div class="h6-product-slider pt-120" style="padding-bottom: 64px;">
+          <!-- single slide -->
+          {% for product in products %}
+          <div class="h6-partner-slide">
+            <div class="image-container">
+              <img src="{{product.image.url}}" alt="" class="image" style="border-radius: 10px;" />
+              <div class="icon-div">
+                <img src="{{product.icon.url}}" alt="" class="icon" />
+              </div>
+              <h6 class="overlay-text"><a href="{{product.get_absolute_url}}" class="text-white">{{product.title}}</a></h6>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </section>
+    <!-- End Hero Banner -->
+  </div>
+  {% if client_logos %}
+  <!-- dubole headline moving -->
+  <section class="headline-wrapper">
+    <div class="h6-partner-slider">
+      <!-- single slide -->
+      {% for client in client_logos %}
+      <div class="h6-partner-slide">
+        <img src="{{client.image.url}}" alt="{{client.name}}" class="" />
+      </div>
+      {% endfor %}
+      <!-- single slide -->
+    </div>
+  </section>
+  <!-- dubole headline moving -->
+  {% endif %}
+
+  <!-- service section -->
+  {% if product_title %}
+  <section class="pt-120 pb-100 position-relative ov-hidden">
+    <img src="{% static 'web/images/h6-hero-bg.png' %}" alt="" class="position-absolute w-100  top-0 h-100" />
+    <div class="container">
+      <h1 class="text-center h6-section-heading">{{product_title.title}}</h1>
+      <p class="h6-paragraph text-center pt-18">{{product_title.sub_title}}</p>
+      <div class="row pt-28">
+        <div class="col-lg-9" data-aos="fade-right">
+          <div class="tab-content" id="myTabContent">
+            {% for product in cutting_edge_products %}
+              <img src="{{ product.image.url }}" alt="{{ product.title }}" class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="product-{{ forloop.counter }}" role="tabpanel" aria-labelledby="product-{{ forloop.counter }}-tab" />
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <ul class="nav nav-tabs h6-tab-btn" id="myTab" role="tablist">
+            {% for product in cutting_edge_products %}
+              <li class="nav-item position-relative" role="presentation" data-aos="fade-up">
+                <button class="nav-link {% if forloop.first %}active{% endif %}" id="product-{{ forloop.counter }}-tab" data-bs-toggle="tab" data-bs-target="#product-{{ forloop.counter }}" type="button" role="tab" aria-controls="product-{{ forloop.counter }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+                  <span class="">{{ product.title }}</span>
+                </button>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+  <!-- Features -->
+  {% if service_title %}
+      <div class="container pt-120 pb-100">
+      <div class="row">
+        <div class="col-12 mt-4">
+          <!-- Section Title -->
+          <div class="section-title-area text-center" data-aos="fade-up">
+            <h2 class="section-title">{{service_title.title}}</h2>
+            <p>{{service_title.sub_title}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Features Slider -->
+    <div class="features-slider" data-aos="fade-up">
+
+      <!-- Single Slide -->
+      {% for service in services %}
+      <div class="single-slide">
+        <div class="features-single bg-transparent">
+          <div class="features-icon mg-btm-30">
+            <img src="{{service.image.url}}" alt="#" />
+          </div>
+          <h3 class="features-title mg-btm-20"><a >{{service.title}}</a></h3>
+          <p>{{service.description}}</p>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- End Single Slide -->
+      
+     
+    </div>
+    <!-- End Features Slider -->
+  </section>
+  {% endif %}
+  <!-- End Features -->
+
+  <!-- About Section -->
+  <section class="h6-about-section position-relative ov-hidden" style="background-image: url('{% static 'web/images/h6-about-bg.png' %}')">
+    <img src="{% static 'web/images/h6-about-bg.png' %}" alt="" class="position-absolute w-100  top-0 h-100" />
+    <div class="container">
+    <div class="container">
+      <div class="row h6-about-single-sec align-items-end">
+        <div class="col-lg-5 h6-about-text-sec" data-aos="fade-right">
+          <h1 class="h6-section-heading text-white pb-20">{{achivement.title}}</h1>
+          <p class="h6-paragraph text-white">{{achivement.description}}</p>
+
+          {% if achivement_features %}
+          <ul class="list-features mt-4">
+            {% for achivement_feature in achivement_features %}
+            <li>
+              <span class="flex-shrink-0">
+                <img src="{% static 'web/images/price-check-icon.svg' %}" />
+              </span>
+              <span class="text-white"
+                >{{achivement_feature.title}}</span
+              >
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+        <div class="col-lg-7 position-relative h6-about-img-sec" data-aos="fade-left">
+          <img src="{{achivement.image.url}}" alt="" class="saastain-anim-shape8" />
+        </div>
+      </div>
+      <!-- sec -2 -->
+      {% if objective %}
+      <div class="row h6-about-single-sec h6-about-single-sec-2 align-items-end">
+        <div class="col-lg-7 position-relative h6-about-img-sec" data-aos="fade-right">
+          <img src="{{objective.image.url}}" alt="" class="saastain-anim-shape8" />
+        </div>
+        <div class="col-lg-5 h6-about-text-sec" data-aos="fade-left">
+          <h1 class="h6-section-heading res-mar text-white pb-20">{{objective.title}}</h1>
+          <p class="h6-paragraph text-white">{{objective.description}}</p>
+          {% if objectives_features %}
+          <ul class="list-features mt-4">
+            {% for objectives_feature in objectives_features %}
+            <li>
+              <span class="flex-shrink-0">
+                <img src="{% static 'web/images/price-check-icon.svg' %}" />
+              </span>
+              <span class="text-white"
+                >{{objectives_feature.title}}</span
+              >
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          <a href="{% url "web:service" %}" class="h6-btn-primary w-fit"><span>Learn More</span></a>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    </div>
+  </section>
+
+  <!-- core features -->
+
+  <section class="pt-120 pb-100 position-relative">
+    <img src="{% static 'web/images/h6-hero-bg.png' %}" alt="" class="position-absolute top-0 w-100 h-100 " />
+    <div class="">
+      <h1 class="text-center h6-section-heading">{{feature_title.title}}</h1>
+      <p class="h6-paragraph text-center pt-18">{{feature_title.sub_title}}</p>
+      {% include "web/partials/features.html" %}
+    </div>
+  </section>
+
+  <!-- Testimonial Slides -->
+  <section class="section-padding black-bg saastain-bg__cover" style="background-image: url('{% static 'web/images/testimonial-bg-pattern.svg' %}')">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mg-btm-40">
+          <!-- Section Title -->
+          <div class="section-title-v3 text-center" data-aos="fade-in">
+            <h1 class="text-center h6-section-heading text-white">{{testimonial_title.title}}</h1>
+            <p class="h6-paragraph text-center pt-18 text-white">{{testimonial_title.sub_title}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12" data-aos="fade-in">
+          <!-- Sponsor Slide -->
+          <div class="testimonial-g-slide align-items-center h6-testimonial-slider">
+            {% for testimonial in testimonials %}
+            <div class="single-slide">
+              <!-- Feedback Area -->
+              <div class="single-feedback single-feedback__v2 single-feedback__modify">
+                <div class="single-feedback__content">
+                  <div class="saastain-flex__space saastain-flex-gap-10 mg-btm-25">
+                    <!-- feedback author -->
+                    <div class="single-feedback__author p-0 m-0">
+                      <div class="flex-shrink-0">
+                        <img src="{{testimonial.image.url}}" alt="#" />
+                      </div>
+                      <div class="flex-shrink-0">
+                        <h4 class="single-feedback__author-name">{{testimonial.name}}</h4>
+                        <p class="single-feedback__author-postion">{{testimonial.position}}</p>
+                      </div>
+                    </div>
+                    <span><img src="{% static 'web/images/gr-quote-icon.svg' %}" /></span>
+                  </div>
+                  <p class="offwhite-color m-0">{{testimonial.description}}</p>
+                  <div class="saastain-flex__space saastain-flex-gap-10 mg-top-20 flex-wrap">
+                    
+                    <div class="ratting-icons saastain-flex-start saastain-flex-gap-10">
+                      <span class="yellow-text"><i class="fas fa-star"></i></span>
+                      <span class="yellow-text"><i class="fas fa-star"></i></span>
+                      <span class="yellow-text"><i class="fas fa-star"></i></span>
+                      <span class="yellow-text"><i class="fas fa-star"></i></span>
+                      <span class="yellow-text"><i class="fas fa-star"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Feedback Area -->
+            </div>
+            {% endfor %}
+          </div>
+          <!-- End Sponsor Slide -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Testimonial Slides -->
+
+  <!-- Blog Area -->
+  <section class="blog-area pd-top-100 pd-btm-130" style="background-image: url('{% static 'web/images/h6-hero-bg.png' %}')">
+    <div class="container">
+      <h1 class="text-center h6-section-heading">{{brach_title.title}}</h1>
+      <p class="h6-paragraph text-center pt-18">{{brach_title.sub_title}}</p>
+      <div class="row">
+        <div class="content-wrapper">
+          {% for branch in branches %}
+          <div class="col-lg-3 col-md-6 col-12 mg-top-30" data-aos="fade-in">
+              <div class="single-blog__head global_presence">
+                  <a class="image-hover">
+                      <img src="{{branch.country_icon.url}}" alt="" class="icon-img" >
+                      <h2 class="image-text">{{branch.country}}</h2>
+                      <h3 class="image-sub-head">{{branch.name}}</h3>
+                      <p class="image-sub-text">{{branch.address}}</p>
+                      <h3 class="image-number">{{branch.number}}</h3>
+                      <img src="{{branch.image.url}}" alt="{{branch.name}}" class="default-img image" />
+                      <img src="{{branch.hover_image.url}}" alt="{{branch.name}}" class="hover-img image" />
+                  </a>
+              </div>
+          </div>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+  <!-- End Blog Area -->
+{% endblock %}

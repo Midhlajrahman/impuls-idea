@@ -1,0 +1,37 @@
+{% load static %}
+<div class="row pt-28">
+    <div class="col-12">
+        <div class="h6-core-features-slider">
+            {% for feature in features %}
+            <div class="core-features-card-wrapper">
+                <div class="core-features-card">
+                    <div class="core-features-icon">
+                        <img src="{{ feature.icon_image.url }}" alt="" class="features-icon">
+                    </div>
+                    <h1 class="core-features-card-title">{{ feature.title }}</h1>
+                    <p class="core-features-card-text">{{ feature.description }}</p>
+                    <div class="core-features-card-btn">
+                        <a href="#" class="h6-btn-transparent"></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="h6-core-features-slider-2 pt-24" dir="rtl">
+            {% for feature in features|slice:":4" %}
+            <div class="core-features-card-wrapper" dir="ltr">
+                <div class="core-features-card">
+                    <div class="core-features-icon">
+                        <img src="{{ feature.icon_image.url }}" alt="" class="features-icon">
+                    </div>
+                    <h1 class="core-features-card-title">{{ feature.title }}</h1>
+                    <p class="core-features-card-text">{{ feature.description }}</p>
+                    <div class="core-features-card-btn">
+                        <a href="#" class="h6-btn-transparent"></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

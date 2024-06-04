@@ -1,0 +1,112 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block content %}
+
+    <!-- BreadCrumb -->
+    <div
+      class="breadcrumb-area saastain-bg__cover"
+      style="background-image: url('{% static 'web/images/product-breadcrumb.png' %}')"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12">
+            <div class="page-banner-content text-center">
+              <h3 class="page-banner-heading images/logo-3.png">{{product.title}}</h3>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End BreadCrumb -->
+
+    <!-- Single Integration -->
+    <section class="section-padding" >
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12 mg-top-25">
+                  <div class="about-int-img">
+                    <div class="product-icon-div">
+                      <img src="{{product.icon.url}}" alt="" class="icon" />
+                    </div>
+                    <img src="{{product.image.url}}" alt="" />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 mg-top-25">
+                  <div class="ms-4">
+                    <h2 class="integration-single-title mg-btm-20">{{product.title}}</h2>
+                    <p class="integration-single-sub-title">{{product.sub_title}}</p>
+                    <p class="mb-20">
+                      {{product.description}}
+                    </p>
+                    <ul class="list-features mb-4 mg-top-25">
+                      {% for product_feuture in product_feutures %}
+                      <li>
+                        <span class="flex-shrink-0">
+                          <img src="{% static 'web/images/price-check-icon.svg' %}" />
+                        </span>
+                        <span class="text-color"
+                          >{{product_feuture.title}}</span
+                        >
+                      </li>
+                      {% endfor %}
+                      
+                    </ul>
+                    <a href="{% url "web:contact" %}" class="h6-btn-primary w-fit "><span>Get in touch</span></a>
+                  </div>
+                </div>
+              </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    
+    </section>
+    <!-- End Single Integration -->
+
+
+    {% if feature_slide %}
+    <section style="background-image: url('{% static 'web/images/h6-product-detail-bg.png' %}')" class="section-padding">
+      <div class="row pt-28">
+        <div class="col-12">
+            <div class="h6-core-features-slider">
+                {% for feature in feature_slide %}
+                <div class="core-features-card-wrapper">
+                    <div class="core-features-card">
+                        <div class="core-features-icon">
+                            <img src="{{ feature.icon_image.url }}" alt="" class="features-icon">
+                        </div>
+                        <h1 class="core-features-card-title">{{ feature.title }}</h1>
+                        <p class="core-features-card-text">{{ feature.description }}</p>
+                        <div class="core-features-card-btn">
+                            <a href="#" class="h6-btn-transparent"></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="h6-core-features-slider-2 pt-24" dir="rtl">
+                {% for feature in feature_slide|slice:":4" %}
+                <div class="core-features-card-wrapper" dir="ltr">
+                    <div class="core-features-card">
+                        <div class="core-features-icon">
+                            <img src="{{ feature.icon_image.url }}" alt="" class="features-icon">
+                        </div>
+                        <h1 class="core-features-card-title">{{ feature.title }}</h1>
+                        <p class="core-features-card-text">{{ feature.description }}</p>
+                        <div class="core-features-card-btn">
+                            <a href="#" class="h6-btn-transparent"></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    </section>
+    {% endif %}
+
+{% endblock %}

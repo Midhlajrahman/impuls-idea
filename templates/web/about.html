@@ -1,0 +1,217 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block content %}
+    <!-- BreadCrumb -->
+    <div
+      class="breadcrumb-area saastain-bg__cover"
+      style="background-image: url('{% static 'web/images/about-breadcrumb.png' %}')"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12">
+            <div class="page-banner-content text-center">
+              <h3
+                class="page-banner-heading images/logo-3.png"
+                data-aos="fade-in"
+              >
+                About Us
+              </h3>
+              <!-- Breadcrumb Start-->
+              
+              <!-- Breadcrumb End-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End BreadCrumb -->
+
+    <!-- About Area -->
+    {% if about %}
+    <section class="about-us-area pd-top-100 pd-btm-100" >
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 col-md-6 col-12 mg-top-30" data-aos="fade-right">
+            <div class="video-popup-img">
+              <img src="{{about.image.url}}" class="about-img" alt="" />
+            </div>
+          </div>
+          <div
+            class="col-lg-6 col-md-6 col-12 pd-left-60-lg mg-top-30" data-aos="fade-left">
+            <!-- Section Title -->
+            <div class="section-title-area text-left">
+              <h2 class="section-title m-0 images/logo-3.png">
+               {{about.title}}
+              </h2>
+              <p class="section-text m-0 mg-top-25">
+                {{about.description}}
+              </p>
+            </div>
+            <!-- List Features -->
+            {% if about_features %}
+            <ul class="list-features m-0 mg-top-25">
+              {% for about_feature in about_features %}
+              <li>
+                <span class="flex-shrink-0">
+                  <img src="{% static 'web/images/price-check-icon.svg' %}" />
+                </span>
+                <span class="text-color">{{about_feature.feature}}</span>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+    <!-- End About Area -->
+
+    <!-- Features Area -->
+    <section
+      class="images-featuers-area saastain-bg__cover pd-btm-130"
+  
+    >
+      <div class="container">
+        <div class="row">
+          {% if mission %}
+          <div class="col-md-6 col-md-6 col-12 mg-top-30" data-aos="fade-left">
+            <!-- Image Features Box -->
+            <div class="images-featuers-box">
+              <div class="section-title-area text-left">
+                <h2 class="section-title m-0">{{mission.title}}</h2>
+                <p class="section-text m-0 mg-top-25">
+                 {{mission.description}}
+                </p>
+              </div>
+              
+              <a href="{% url "web:products" %}" class="h6-btn-primary w-fit mt-4"><span>Explore now</span></a>
+              <div class="images-featuers-box__img mg-top-40">
+                <img src="{{mission.image.url}}" alt="mission" />
+              </div>
+            </div>
+            <!-- End Image Features Box -->
+          </div>
+          {% endif %}
+
+          {% if vision %}
+          <div class="col-md-6 col-md-6 col-12 mg-top-30" data-aos="fade-up">
+            <!-- Image Features Box -->
+            <div class="images-featuers-box">
+              <div class="images-featuers-box__img mg-btm-40">
+                <img src="{{vision.image.url}}" alt="#" />
+              </div>
+              <div class="section-title-area text-left">
+                <h2 class="section-title m-0">{{vision.title}}</h2>
+                <p class="section-text m-0 mg-top-25">
+                  {{vision.decsription}}
+                </p>
+              </div>
+              <a href="{% url "web:contact" %}" class="h6-btn-primary w-fit mt-4"><span>Contact Us</span></a>
+            </div>
+            <!-- End Image Features Box -->
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+    
+    <!-- End Features Area -->
+
+    <!-- Our Team -->
+    <section class="our-team-area  pd-btm-130">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 mg-btm-30">
+            <!-- Section Title -->
+            <div class="section-title-area text-center" data-aos="fade-in">
+              <h2 class="section-title images/logo-3.png">{{team_title.title}}</h2>
+              <p class="section-text m-0 mg-top-25">
+                {{team_title.sub_title}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          {% for team in teams %}
+          <div class="col-lg-3 col-md-6 col-12 mg-top-30" data-aos="fade-up">
+            <!-- Single Team -->
+            <div class="single-member text-center">
+              <div class="single-member__img">
+                <img src="{{team.image.url}}" alt="#" />
+              </div>
+              <div class="single-member__content mg-top-20">
+                <h3 class="single-member__name">
+                  <a>{{team.name}}</a>
+                </h3>
+                <p class="single-member__position m-0">{{team.position}}</p>
+              </div>
+            </div>
+            <!-- End Single Team -->
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- End Our Team -->
+ <!-- Faq Area -->
+ {% if faq_title %}
+ <section
+ class="faq-area saastain-bg__cover section-padding "
+ style="background-image: url('{% static 'web/images/faq-bg.png' %}'); padding-top: 29px;">
+ <div class="container">
+   <div class="row">
+     <div class="col-12 mg-btm-30">
+       <div class="section-title-area text-center" data-aos="fade-in">
+         <h2 class="section-title-v3__title m-0 images/logo-3.png">
+           {{faq_title.title}}
+         </h2>
+         <p class="section-title-v3__text m-0 mg-top-15 images/logo-3.png">
+           {{faq_title.sub_title}}
+         </p>
+       </div>
+     </div>
+   </div>
+   <div class="row mg-top-30 align-items-center">
+     <div class="col-lg-5 col-md-6 col-12" data-aos="fade-right">
+       <div class="faq-img rr-mg-50">
+         <img src="{{faq_title.image.url}}" alt="#" />
+       </div>
+     </div>
+     <div class="col-lg-7 col-md-6 col-12">
+      <div class="accordion faq" id="accordionExample">
+        {% for faq in faqs %}
+        <div class="accordion-item" data-aos="fade-up">
+            <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+                <button
+                    class="accordion-button faq-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse{{ forloop.counter }}"
+                    aria-expanded="{{ forloop.first }}"
+                    aria-controls="collapse{{ forloop.counter }}"
+                >
+                    {{ faq.question }}
+                </button>
+            </h2>
+            <div
+                id="collapse{{ forloop.counter }}"
+                class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
+                aria-labelledby="heading{{ forloop.counter }}"
+                data-bs-parent="#accordionExample"
+            >
+                <div class="accordion-body faq-text">
+                    {{ faq.answer }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+     </div>
+   </div>
+ </div>
+</section>
+{% endif %}
+<!-- End Faq Area -->
+
+{% endblock %}

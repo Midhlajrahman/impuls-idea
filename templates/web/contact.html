@@ -1,0 +1,119 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block content %}
+
+    <!-- BreadCrumb -->
+    <div
+      class="breadcrumb-area saastain-bg__cover "
+      style="background-image: url('{% static 'web/images/contact-breadcrumb.png' %}')"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12">
+            <div class="page-banner-content text-center">
+              <h3 class="page-banner-heading images/logo-3.png">Contact Us</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End BreadCrumb -->
+
+    <!-- Contact -->
+    <section class="section-padding" style="background-image: url('{% static 'web/images/h6-contact-bg.png' %}')">
+      <div class="container">
+        {% if contect_card %}
+        <div class="row contact-box-group mb-5">
+          <div class="col-lg-12">
+            <div class="contact-div"  style="background-image: url('{{ contect_card.image.url }}');">
+              <h2 class="text-white">{{contect_card.title}}</h2>
+              <p class="text-white">{{contect_card.description}}</p>
+
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        
+        <div class="row">
+          <div class="col-lg-12  col-md-12" data-aos="fade-in">
+            <div class="contact-from saastain-bg__cover ov-hidden" >
+              {% if contact_adress %}
+              <div class="row mb-5">
+                <div class="col-lg-4 col-md-4 col-sm-12 contact-col">
+                  <div class="contact-detail-card">
+                    <img src="{% static 'web/images/icon/email-icon.svg' %}" alt="" class="contact-card-icon">
+                    <h3 class="contact-card-text">Send Us Email</h3>
+                    <p class="contact-card-subtext">{{contact_adress.email}}</p>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12 contact-col">
+                  <div class="contact-detail-card">
+                    <img src="{% static 'web/images/icon/call-icon.svg' %}" alt="" class="contact-card-icon">
+                    <h3 class="contact-card-text">Call Us Now</h3>
+                    <p class="contact-card-subtext">{{contact_adress.number}}</p>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12 contact-col">
+                  <div class="contact-detail-card">
+                    <img src="{% static 'web/images/icon/location-icon.svg' %}" alt="" class="contact-card-icon">
+                    <h3 class="contact-card-text">Office Location</h3>
+                    <p class="contact-card-subtext">{{contact_adress.place}}</p>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+              <h2 class="general-text ">General inquiries</h2>
+              <!-- form area -->
+              <form class="ajax reload" method="post">
+                {% csrf_token %}
+                <div class="row">
+                  <!-- name -->
+                  <div class="col-md-6">
+                    <label for="name" class="from-label "
+                      >Your Name</label
+                    >
+                    {{form.name}}
+                  </div>
+                  <!-- email -->
+                  <div class="col-md-6">
+                    <label for="email" class="from-label "
+                      >Your Email</label
+                    >
+                   {{form.email}}
+                  </div>
+                  <!-- subject -->
+                  <div class="col-md-12">
+                    <label for="subject" class="from-label "
+                      >Your Subject</label
+                    >
+                    {{form.subject}}
+                  </div>
+                  <!-- message -->
+                  <div class="col-md-12">
+                    <label for="message" class="from-label "
+                      >Write your message</label
+                    >
+                    {{form.message}}
+                  </div>
+                  <!-- button submit -->
+                  <div class="col-lg-12 mg-top-30">
+                    <button
+                      type="submit"
+                      class="h6-btn-primary"
+                    >
+                      <span>Submit Now</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <!-- form area -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Contact -->
+
+{% endblock %}

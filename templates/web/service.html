@@ -1,0 +1,234 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block content %}
+
+    <!-- BreadCrumb -->
+    <div
+      class="breadcrumb-area saastain-bg__cover"
+      style="background-image: url('{% static 'web/images/service-breadcrumb.png' %}')"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12">
+            <div class="page-banner-content text-center">
+              <h3
+                class="page-banner-heading images/logo-3.png"
+                data-aos="fade-in"
+              >
+              Services
+              </h3>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End BreadCrumb -->
+
+    <!-- Integration -->
+    <section
+      class="integration-area integration-area-archive pd-top-100 pd-btm-130"
+    >
+      <div class="container">
+        <div class="row">
+          {% if service_title %}
+          <div class="col-12 mg-btm-60">
+            <!-- Section Title -->
+            <div class="section-title-area text-center" data-aos="fade-up">
+              <h2 class="section-title ">{{service_title.title}}</h2>
+              <p>{{service_title.sub_title}}</p>
+            </div>
+          </div>
+          {% endif %}
+
+          {% for service in services %}
+          <div class="col-lg-4 col-md-6 col-12 mg-top-30" data-aos="fade-up">
+            <!-- Integration Single -->
+            <div class="integration-single">
+              <div class="integration-single__head mg-btm-30 bg-green">
+                <img src="{{service.image.url}}" alt="#" />
+              </div>
+              <h4 class="integration-single__title">
+                <a>{{service.title}}</a>
+              </h4>
+              <p>
+                {{service.description}}
+              </p>
+            </div>
+            <!-- End Integration Single -->
+          </div>
+          {% endfor %}
+          {% comment %} <div
+            class="col-lg-4 col-md-6 col-12 mg-top-30"
+            data-aos="fade-up"
+            data-aos-delay="200">
+            <!-- Integration Single -->
+            <div class="integration-single">
+              <div
+                class="integration-single__head mg-btm-30 rounded-circle bg-yellow"
+              >
+                <img src="{% static 'web/images/service/service-2.png' %}" alt="#" />
+              </div>
+              <h4 class="integration-single__title">
+                <a href="single-integration.html">Kubernetes Services</a>
+              </h4>
+              <p>
+                Kubernetes/container services empower organizations to seamlessly adopt containerization and Kubernetes orchestration
+              </p>
+              
+            </div>
+            <!-- End Integration Single -->
+          </div> {% endcomment %}
+          {% comment %} <div
+            class="col-lg-4 col-md-6 col-12 mg-top-30"
+            data-aos="fade-up"
+            data-aos-delay="400">
+            <!-- Integration Single -->
+            <div class="integration-single">
+              <div
+                class="integration-single__head mg-btm-30 rounded-circle bg-red"
+              >
+                <img src="{% static 'web/images/service/service-3.png' %}" alt="#" />
+              </div>
+              <h4 class="integration-single__title">
+                <a href="single-integration.html">Resourcing</a>
+              </h4>
+              <p>
+                Our tech expertise team with high standards ensures consistent quality, professionalism and seamlessly fits into clients’ process, reports to managers, and adheres to clients’ delivery methods to uphold the quality
+              </p>
+              
+            </div>
+            <!-- End Integration Single -->
+          </div> {% endcomment %}
+          {% comment %} <div class="col-lg-4 col-md-6 col-12 mg-top-30" data-aos="fade-up">
+            <!-- Integration Single -->
+            <div class="integration-single">
+              <div
+                class="integration-single__head mg-btm-30 rounded-circle bg-red"
+              >
+                <img src="{% static 'web/images/service/service-4.png' %}" alt="#" />
+              </div>
+              <h4 class="integration-single__title">
+                <a href="single-integration.html">Cloud Services</a>
+              </h4>
+              <p>
+                Expertise in Multi cloud Hybrid platforms through Infrastructure optimization, Containerization, workload migrations and Apps storage data protection services
+              </p>
+              
+            </div>
+            <!-- End Integration Single -->
+          </div> {% endcomment %}
+          {% comment %} <div
+            class="col-lg-4 col-md-6 col-12 mg-top-30"
+            data-aos="fade-up"
+            data-aos-delay="200" >
+            <!-- Integration Single -->
+            <div class="integration-single">
+              <div
+                class="integration-single__head mg-btm-30 rounded-circle bg-red-y"
+              >
+                <img src="{% static 'web/images/service/service-5.png' %}" alt="#" />
+              </div>
+              <h4 class="integration-single__title">
+                <a href="single-integration.html">Middleware Integration</a>
+              </h4>
+              <p>
+                Deployed successful Microservices Integration, API Security Management, App-containerization and Legacy problems resolution services
+              </p>
+              
+            </div>
+            <!-- End Integration Single -->
+          </div> {% endcomment %}
+          {% comment %} <div
+            class="col-lg-4 col-md-6 col-12 mg-top-30"
+            data-aos="fade-up"
+            data-aos-delay="400">
+            <!-- Integration Single -->
+            <div class="integration-single">
+              <div
+                class="integration-single__head mg-btm-30 rounded-circle bg-bull"
+              >
+                <img src="{% static 'web/images/service/service-6.png' %}" alt="#" />
+              </div>
+              <h4 class="integration-single__title">
+                <a href="single-integration.html">AI Assisted CHATBOT</a>
+              </h4>
+              <p>
+                Our Chatbot solution meets the Client’s business requirements, regardless of  department or industry and delivers versatile   and enhanced solution meeting the diverse  business demands
+              </p>
+              
+            </div>
+            <!-- End Integration Single -->
+          </div> {% endcomment %}
+
+          {% comment %} <div
+            class="col-lg-4 col-md-6 col-12 mg-top-30"
+            data-aos="fade-up"
+            data-aos-delay="400">
+            <!-- Integration Single -->
+            <div class="integration-single">
+              <div
+                class="integration-single__head mg-btm-30 rounded-circle bg-bull"
+              >
+                <img src="{% static 'web/images/service/service-7.png' %}" alt="#" />
+              </div>
+              <h4 class="integration-single__title">
+                <a href="single-integration.html">Apps Modernization</a>
+              </h4>
+              <p>
+                Effectively engaged key Technology partners and utilized their products for implementation of complex solutions for customers
+            </div>
+            <!-- End Integration Single -->
+          </div> {% endcomment %}
+
+          {% comment %} <div
+            class="col-lg-4 col-md-6 col-12 mg-top-30"
+            data-aos="fade-up"
+            data-aos-delay="400">
+            <!-- Integration Single -->
+            <div class="integration-single">
+              <div
+                class="integration-single__head mg-btm-30 rounded-circle bg-bull"
+              >
+                <img src="{% static 'web/images/service/service-8.png' %}" alt="#" />
+              </div>
+              <h4 class="integration-single__title">
+                <a href="single-integration.html">DevOps Services</a>
+              </h4>
+              <p>
+                Commissioned cloud ready Integration platform for On-Prem DevOps using NativeKubernetes, Azure, Redhat OCP
+              </p>
+              
+            </div>
+            <!-- End Integration Single -->
+          </div> {% endcomment %}
+
+          {% comment %} <div
+            class="col-lg-4 col-md-6 col-12 mg-top-30"
+            data-aos="fade-up"
+            data-aos-delay="400">
+            <!-- Integration Single -->
+            <div class="integration-single">
+              <div
+                class="integration-single__head mg-btm-30 rounded-circle bg-bull"
+              >
+                <img src="{% static 'web/images/service/service-9.png' %}" alt="#" />
+              </div>
+              <h4 class="integration-single__title">
+                <a href="single-integration.html">Data & AI/ML</a>
+              </h4>
+              <p>
+                Our trained AI/ML models do serve in the banking channel applications and smart citizen services portals
+              </p>
+              
+            </div>
+            <!-- End Integration Single -->
+          </div> {% endcomment %}
+
+
+        </div>
+      </div>
+    </section>
+    <!-- End Integration -->
+
+{% endblock %}

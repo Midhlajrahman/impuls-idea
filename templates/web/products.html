@@ -1,0 +1,159 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block content %}
+
+    <!-- BreadCrumb -->
+    <div
+      class="breadcrumb-area saastain-bg__cover"
+      style="background-image: url('{% static 'web/images/product-breadcrumb.png' %}')"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12">
+            <div class="page-banner-content text-center">
+              <h3
+                class="page-banner-heading images/logo-3.png"
+                data-aos="fade-in"
+              >
+                Our Products
+              </h3>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End BreadCrumb -->
+
+    <!-- Integration area start -->
+    {% if product_card %}
+    <section class="integration-area banner-space-3 pd-top-100 pd-btm-130">
+      <div class="container-fluid p-0">
+        <div class="row p-0">
+          <div class="col-12 p-0">
+            <div
+              class="integration-area--inner position-relative saastain-bg__cover section-padding ov-hidden"
+              style="background-image: url('{% static 'web/images/integration-bg.svg' %}')"
+            >
+             
+              <div class="section-title-area text-center" data-aos="fade-in">
+                <h2 class="section-title text-white m-0">
+                  {{product_card.title}}
+                </h2>
+                <p class="section-text m-0 text-white mg-top-25">
+                  {{product_card.sub_title}}
+                </p>
+              </div>
+              <div class="integration-icon mt-5">
+                <div
+                  class="integration-icon__single integration-icon__1 saastain-anim-shape2"
+                >
+                  <a href="#"
+                    ><img src="{% static 'web/images/icon-integration/icon-1.png' %}" alt="#"
+                  /></a>
+                </div>
+                <div
+                  class="integration-icon__single integration-icon__2 saastain-anim-shape3"
+                >
+                  <a href="#"
+                    ><img src="{% static 'web/images/icon-integration/icon-2.png' %}" alt="#"
+                  /></a>
+                </div>
+                <div
+                  class="integration-icon__single integration-icon__3 saastain-anim-shape4"
+                >
+                  <a href="#"
+                    ><img src="{% static 'web/images/icon-integration/icon-3.png' %}" alt="#"
+                  /></a>
+                </div>
+                <div
+                  class="integration-icon__single integration-icon__4 saastain-anim-shape2"
+                >
+                  <a href="#"
+                    ><img src="{% static 'web/images/icon-integration/icon-4.png' %}" alt="#"
+                  /></a>
+                </div>
+                <div
+                  class="integration-icon__single integration-icon__5 saastain-anim-shape4"
+                >
+                  <a href="#"
+                    ><img src="{% static 'web/images/icon-integration/icon-5.png' %}" alt="#"
+                  /></a>
+                </div>
+                <div
+                  class="integration-icon__single integration-icon__6 saastain-anim-shape3"
+                >
+                  <a href="#"
+                    ><img src="{% static 'web/images/icon-integration/icon-6.png' %}" alt="#"
+                  /></a>
+                </div>
+                <div
+                  class="integration-icon__single integration-icon__7 saastain-anim-shape2"
+                >
+                  <a href="#"
+                    ><img src="{% static 'web/images/icon-integration/icon-7.png' %}" alt="#"
+                  /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+    <!-- Integration area end -->
+    
+    <!-- Blog Area -->
+    <section class="blog-area section-archive  pd-btm-130 saastain-bg__cover">
+      <div class="container">
+        <div class="row">
+          {% if product_title %}
+          <div class="col-12 mg-btm-60">
+            <!-- Section Title -->
+            <div class="section-title-area text-center" data-aos="fade-up">
+              <h2 class="section-title ">{{product_title.title}}</h2>
+              <p>{{product_title.sub_title}}</p>
+            </div>
+          </div>
+          {% endif %}
+
+          {% for product in products %}
+          <div class="col-lg-4 col-md-6 col-12 mg-top-30" data-aos="fade-in">
+            <!-- Single Blog -->
+            <div class="single-blog single-blog--v2">
+              <!-- Blog Head -->
+              <div class="single-blog__head">
+               <div class="product-icon">
+                <img src="{{product.icon.url}}" alt="" class="icon" />
+              </div>
+                <a href="{{product.get_absolute_url}}"
+                  ><img src="{{product.image.url}}" alt="#"
+                /></a>
+              </div>
+              <!-- Blog Content -->
+              <div class="single-blog__content">
+                <!-- Blog Meta -->
+                <h3 class="single-blog__title">
+                  <a href="{{product.get_absolute_url}}"
+                    >{{product.title}}</a
+                  >
+                <p class="mt-2">{{product.sub_title|truncatechars:34}}</p>
+                </h3>
+                <!-- Blog Author -->
+                <div class="single-blog__author">
+                  <a href="{{product.get_absolute_url }}" class="h6-btn-primary w-fit "><span>Learn More</span></a>
+                </div>
+              </div>
+            </div>
+            <!-- End Single Blog -->
+          </div>
+          {% endfor %}
+        </div>
+        
+      </div>
+    </section>
+    <!-- End Blog Area -->
+
+
+
+{% endblock %}

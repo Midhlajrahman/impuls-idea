@@ -1,0 +1,50 @@
+{% load static %}
+<!-- Header -->
+<header
+id="active-sticky"
+class="saastain-header saastain-header--v3 fluid-space"
+>
+<div class="saastain-header__middle">
+  <div class="container p-0">
+    <div class="row align-items-center">
+      <div class="col-12">
+        <div class="saastain-header__inside flex-wrap">
+          <div class="saastain-header__logo">
+            <a href="{% url "web:index" %}"    
+              ><img src="{% static 'web/images/h6-logo.svg' %}" class="logo-img" alt="#"
+            /></a>
+          </div>
+          <div class="saastain-header__menu">
+            <div class="navbar">
+              <div class="nav-item">
+                <!-- Main Menu -->
+                <ul class="nav-menu menu navigation list-none">
+                  <li><a href="{% url "web:index" %}" class="{% if is_index %} active {% endif %}">Home</a></li>
+                  <li><a href="{% url "web:about" %}" class="{% if is_about %} active {% endif %}">Company</a></li>
+                  <li><a href="{% url "web:products" %}" class="{% if is_products %} active {% endif %}">Products</a></li>
+                  <li><a href="{% url "web:service" %}" class="{% if is_service %} active {% endif %}">Services</a></li>
+                  <li><a href="{% url "web:contact" %}" class="{% if is_contact %} active {% endif %}">Contact Us</a></li>
+                </ul>
+                <!-- End Main Menu -->
+              </div>
+            </div>
+          </div>
+          <button
+                  type="button"
+                  class="offcanvas-toggler"
+                  data-bs-toggle="modal"
+                  data-bs-target="#offcanvas-modal"
+                >
+                  <span class="line"></span><span class="line"></span
+                  ><span class="line"></span>
+                </button>
+          <div class="saastain-header__button">
+            <a href="{% url "web:contact" %}" class="h6-btn-primary h6-header-btn-primary"><span>GET IN TOUCH</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+<!-- End Header -->
