@@ -12,7 +12,7 @@
               <p>
                 {{banner.sub_title}}
               </p>
-              <a href="{% url "web:contact" %}" class="h6-btn-primary w-fit mx-auto h6-header-btn-primary"><span>GET IN TOUCH</span></a>
+              <a href="{% url "web:products" %}" class="h6-btn-primary w-fit mx-auto h6-header-btn-primary"><span>Explore Now</span></a>
             </div>
           </div>
         </div>
@@ -39,17 +39,7 @@
   </div>
   {% if client_logos %}
   <!-- dubole headline moving -->
-  <section class="headline-wrapper">
-    <div class="h6-partner-slider">
-      <!-- single slide -->
-      {% for client in client_logos %}
-      <div class="h6-partner-slide">
-        <img src="{{client.image.url}}" alt="{{client.name}}" class="" />
-      </div>
-      {% endfor %}
-      <!-- single slide -->
-    </div>
-  </section>
+  
   <!-- dubole headline moving -->
   {% endif %}
 
@@ -57,7 +47,7 @@
   {% if product_title %}
   <section class="pt-120 pb-100 position-relative ov-hidden">
     <img src="{% static 'web/images/h6-hero-bg.png' %}" alt="" class="position-absolute w-100  top-0 h-100" />
-    <div class="container">
+    <div class="container mb-5">
       <h1 class="text-center h6-section-heading">{{product_title.title}}</h1>
       <p class="h6-paragraph text-center pt-18">{{product_title.sub_title}}</p>
       <div class="row pt-28">
@@ -82,7 +72,18 @@
       </div>
     </div>
     {% endif %}
-
+    <br>
+    <div class="headline-wrapper mt-5">
+      <div class="h6-partner-slider">
+        <!-- single slide -->
+        {% for client in client_logos %}
+        <div class="h6-partner-slide">
+          <img src="{{client.image.url}}" alt="{{client.name}}" class="" />
+        </div>
+        {% endfor %}
+        <!-- single slide -->
+      </div>
+    </div>
   <!-- Features -->
   {% if service_title %}
       <div class="container pt-120 pb-100">
