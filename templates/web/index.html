@@ -12,7 +12,7 @@
               <p>
                 {{banner.sub_title}}
               </p>
-              <a href="{% url "web:products" %}" class="h6-btn-primary w-fit mx-auto h6-header-btn-primary"><span>Explore Now</span></a>
+              <a href="{% url "web:about" %}" class="h6-btn-primary w-fit mx-auto h6-header-btn-primary"><span>About Us</span></a>
             </div>
           </div>
         </div>
@@ -125,12 +125,37 @@
   <section class="h6-about-section position-relative ov-hidden" style="background-image: url('{% static 'web/images/h6-about-bg.png' %}')">
     <img src="{% static 'web/images/h6-about-bg.png' %}" alt="" class="position-absolute w-100  top-0 h-100" />
     <div class="container">
-    <div class="container">
-      <div class="row h6-about-single-sec align-items-end">
+
+      <div class="row h6-about-single-sec h6-about-single-sec-2 align-items-end achivement-mobile-section">
+        <div class="col-lg-7 position-relative h6-about-img-sec" data-aos="fade-right">
+          <img src="{{achivement.image.url}}" alt="" class="saastain-anim-shape8" />
+        </div>
+        <div class="col-lg-5 h6-about-text-sec" data-aos="fade-left">
+          <h1 class="h6-section-heading res-mar text-white pb-20">{{achivement.title}}</h1>
+          <p class="h6-paragraph text-white">{{achivement.description}}</p>
+          {% if achivement_features %}
+          <ul class="list-features mt-4">
+            {% for achivement_feature in achivement_features %}
+            <li>
+              <span class="flex-shrink-0">
+                <img src="{% static 'web/images/price-check-icon.svg' %}" />
+              </span>
+              <span class="text-white"
+                >{{achivement_feature.title}}</span
+              >
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          <a href="{% url "web:service" %}" class="h6-btn-primary w-fit"><span>Learn More</span></a>
+        </div>
+      </div>
+
+
+      <div class="row h6-about-single-sec align-items-end achivement-lg-section">
         <div class="col-lg-5 h6-about-text-sec" data-aos="fade-right">
           <h1 class="h6-section-heading text-white pb-20">{{achivement.title}}</h1>
           <p class="h6-paragraph text-white">{{achivement.description}}</p>
-
           {% if achivement_features %}
           <ul class="list-features mt-4">
             {% for achivement_feature in achivement_features %}
@@ -177,7 +202,6 @@
         </div>
       </div>
       {% endif %}
-    </div>
     </div>
   </section>
 
