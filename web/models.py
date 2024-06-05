@@ -23,6 +23,7 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
     
+    
 class ContactAdress(models.Model):
     email = models.EmailField()
     number = models.CharField(max_length=15)
@@ -136,6 +137,7 @@ class ProductFeature(models.Model):
     def __str__(self):
         return self.title
     
+    
 class ProductFeatureSlide(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
     icon_image = models.FileField(upload_to="product_feature_icon/",blank=True,null=True)
@@ -236,11 +238,12 @@ class CuttingEdgeProductTitle(models.Model):
 
 
 class CuttingEdgeProduct(models.Model):
+    order = models.IntegerField(blank=True,null=True,unique=True)
     title = models.CharField(max_length=180)
     image = models.ImageField(upload_to='cutting_edge_products/')
     
     class Meta:
-        ordering = ("id",)
+        ordering = ("order",)
         verbose_name_plural = "Cutting Edge Products"
     
     def __str__(self):
