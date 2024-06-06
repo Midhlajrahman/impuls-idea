@@ -844,3 +844,8 @@ img:not([draggable]) {
 .footer-copyright.footer-copyright--v3 {
   background-color: #040414 !important;
 }
+/* Cursor */
+.saastain-mouse-move-big,
+.saastain-mouse-move-sm {
+  display: none;
+}
