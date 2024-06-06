@@ -276,7 +276,7 @@ class Feature(models.Model):
     
 
 class About(models.Model):
-    title = models.CharField(max_length=180)
+    title = models.CharField(max_length=180,blank=True,null=True)
     description = models.TextField()
     image = models.ImageField(upload_to='about/')
     
