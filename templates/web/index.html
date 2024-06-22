@@ -51,7 +51,7 @@
       <p class="h6-paragraph text-center pt-18">{{product_title.sub_title}}</p>
       <div class="row pt-28">
         <div class="col-lg-12">
-          <ul class="nav nav-tabs h6-tab-btn features-slider mb-3" id="myTab" role="tablist">
+          {% comment %} <ul class="nav nav-tabs h6-tab-btn features-slider mb-3" id="myTab" role="tablist">
             {% for product in cutting_edge_products %}
               <li class="nav-item position-relative single-slide" role="presentation" data-aos="fade-up">
                 <button class="nav-link {% if forloop.first %}active{% endif %}" id="product-{{ forloop.counter }}-tab" data-bs-toggle="tab" data-bs-target="#product-{{ forloop.counter }}" type="button" role="tab" aria-controls="product-{{ forloop.counter }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
@@ -59,15 +59,36 @@
                 </button>
               </li>
             {% endfor %}
-          </ul>
-        </div>
-        <div class="col-lg-12" data-aos="fade-right">
-          <div class="tab-content" id="myTabContent">
+          </ul> {% endcomment %}
+          <ul class="product-nav nav nav-pills mb-3 product-slider" id="myTab" role="tablist">
             {% for product in cutting_edge_products %}
-              <img src="{{ product.image.url }}" alt="{{ product.title }}" class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="product-{{ forloop.counter }}" role="tabpanel" aria-labelledby="product-{{ forloop.counter }}-tab" />
+            <li class="nav-item single-slide" role="presentation">
+                <button class="nav-link " id="product-{{ forloop.counter }}-tab" data-bs-toggle="pill" data-bs-target="#product-{{ forloop.counter }}" type="button" role="tab" aria-controls="product-{{ forloop.counter }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">{{ product.title }}</button>
+            </li>
+            {% endfor %}
+        </ul>
+        </div>
+        <div class="col-12" data-aos="fade-in">
+          <!-- Sponsor Slide -->
+          <div class="testimonial-g-slide-product align-items-center h6-testimonial-slider">
+            {% for product in cutting_edge_products %}
+            <div class="single-slide">
+              <img src="{{ product.image.url }}" alt="{{ product.title }}" />
+            </div>
             {% endfor %}
           </div>
+         
         </div>
+        
+        {% comment %} <div class="col-lg-12" data-aos="fade-right">
+            <div class="tab-content " id="myTabContent">
+                {% for product in cutting_edge_products %}
+                <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="product-{{ forloop.counter }}" role="tabpanel" aria-labelledby="product-{{ forloop.counter }}-tab">
+                    <img src="{{ product.image.url }}" alt="{{ product.title }}" />
+                </div>
+                {% endfor %}
+            </div>
+        </div> {% endcomment %}
         
       </div>
     </div>
@@ -331,4 +352,34 @@
     </div>
 </section>
   <!-- End Blog Area -->
+  {% endblock %}
+  {% block js %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var tabButtons = document.querySelectorAll('#myTab .nav-link');
+        var tabContents = document.querySelectorAll('.tab-pane');
+
+        tabButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                // Remove active class from all tab buttons and contents
+                tabButtons.forEach(function (btn) {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-selected', 'false');
+                });
+                tabContents.forEach(function (content) {
+                    content.classList.remove('show', 'active');
+                });
+
+                // Add active class to the clicked tab button
+                this.classList.add('active');
+                this.setAttribute('aria-selected', 'true');
+
+                // Add show and active classes to the corresponding tab content
+                var target = document.querySelector(this.getAttribute('data-bs-target'));
+                target.classList.add('show', 'active');
+            });
+        });
+    });
+</script>
+
 {% endblock %}
