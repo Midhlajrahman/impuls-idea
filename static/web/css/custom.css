@@ -849,3 +849,71 @@ img:not([draggable]) {
 .saastain-mouse-move-sm {
   display: none;
 }
+.container-achivements {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 36px;
+  padding: 0.75rem;
+  color: white;
+  width: 100%;
+  max-width: 380px;
+
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.red {
+  background: #FF4B5C;
+}
+
+.orange {
+  background: #FFA500;
+}
+
+.purple {
+  background: #9B59B6;
+}
+
+.light-orange {
+  background: #FF6F61;
+}
+
+.blue {
+  background: #3498DB;
+}
+
+.text span {
+  margin: 0;
+  font-size: 1.5rem;
+  background: -webkit-linear-gradient( #fff,#0A6AB0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text p {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.7;
+  color: #fff;
+}
+
+.achivements-img img{
+  border-radius: 50%;
+}
+@media only screen and (max-width: 1030px) {
+  .achivements-img img{
+    margin-top: 1px !important;
+  }
+  }

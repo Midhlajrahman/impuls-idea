@@ -325,7 +325,9 @@ class Achivement(models.Model):
     
 class AchivementFeature(models.Model):
     achivement = models.ForeignKey(Achivement,on_delete=models.CASCADE)
+    count = models.CharField(max_length=180,blank=True,null=True)
     title = models.CharField(max_length=180)
+    icon = models.FileField(upload_to='achivements/icon',blank=True,null=True)
     
     def __str__(self):
         return self.title

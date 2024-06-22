@@ -113,7 +113,7 @@ class VisionAdmin(admin.ModelAdmin):
 
 class AchivementFeaturesInline(admin.TabularInline):
     model = AchivementFeature
-    fields = ("title",)
+    fields = ("title",'count','icon')
     extra = 1
 
 @admin.register(Achivement)

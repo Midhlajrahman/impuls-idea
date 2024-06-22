@@ -128,7 +128,20 @@
 
       <div class="row h6-about-single-sec h6-about-single-sec-2 align-items-end achivement-mobile-section">
         <div class="col-lg-7 position-relative h6-about-img-sec" data-aos="fade-right">
-          <img src="{{achivement.image.url}}" alt="" class="saastain-anim-shape8" />
+          <!-- <img src="{{achivement.image.url}}" alt="" class="saastain-anim-shape8" /> -->
+          <div class="container-achivements">
+            {% for achivement_feature in achivement_features %}
+            <div class="stat">
+                <div class="icon achivements-img">
+                  <img src="{{achivement_feature.icon.url}}" alt="">
+                </div>
+                <div class="text">
+                    
+                    <p><span>{{achivement_feature.count}}</span> {{achivement_feature.title}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
         </div>
         <div class="col-lg-5 h6-about-text-sec" data-aos="fade-left">
           <h1 class="h6-section-heading res-mar text-white pb-20">{{achivement.title}}</h1>
@@ -153,7 +166,7 @@
 
 
       <div class="row h6-about-single-sec align-items-end achivement-lg-section">
-        <div class="col-lg-5 h6-about-text-sec" data-aos="fade-right">
+        <div class="col-lg-7 h6-about-text-sec" data-aos="fade-right">
           <h1 class="h6-section-heading text-white pb-20">{{achivement.title}}</h1>
           <p class="h6-paragraph text-white">{{achivement.description}}</p>
           {% if achivement_features %}
@@ -164,18 +177,33 @@
                 <img src="{% static 'web/images/price-check-icon.svg' %}" />
               </span>
               <span class="text-white"
-                >{{achivement_feature.title}}</span
+                >{{achivement_feature.count}} {{achivement_feature.title}}</span
               >
             </li>
             {% endfor %}
           </ul>
           {% endif %}
         </div>
-        <div class="col-lg-7 position-relative h6-about-img-sec" data-aos="fade-left">
-          
-          <img src="{{achivement.image.url}}" alt="" class="saastain-anim-shape8" />
+        
+        <div class="col-lg-5 position-relative h6-about-img-sec" data-aos="fade-left">
+          <div class="container-achivements">
+            {% for achivement_feature in achivement_features %}
+            <div class="stat">
+                <div class="icon achivements-img">
+                  <img src="{{achivement_feature.icon.url}}" alt="">
+                </div>
+                <div class="text">
+                    
+                    <p><span>{{achivement_feature.count}}</span> {{achivement_feature.title}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+          {% comment %} <img src="{{achivement.image.url}}" alt="" class="saastain-anim-shape8" /> {% endcomment %}
         </div>
       </div>
+
       <!-- sec -2 -->
       {% if objective %}
       <div class="row h6-about-single-sec h6-about-single-sec-2 align-items-end">
