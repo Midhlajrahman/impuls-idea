@@ -187,7 +187,7 @@
 
     $(".testimonial-g-slide-product").slick({
       autoplay: true,
-      centerMode: true,
+      centerMode: false,
       centerPadding: "250px",
       speed: 500,
       autoplaySpeed: 3500,
