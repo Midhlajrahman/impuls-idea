@@ -928,7 +928,7 @@ img:not([draggable]) {
     font-size: 16px;
     background: none;
     border: none;
-    color: #000;
+    color: #fff;
     cursor: pointer;
     padding: 10px;
     z-index: 1;

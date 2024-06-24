@@ -8095,11 +8095,16 @@ h7-tabs-ul > li > div {
 }
 
 @media only screen and (min-width: 1260px) {
-.product-section img{
-  padding-left: 50px !important;
-}}
+  .product-section img{
+    .product-section img {
+      /* padding-left: 88px !important; */
+      /* height: 520px !important; */
+      margin-left: auto !important;
+      margin-right: auto !important;
+  }
+  }}
 
 .product-card{
-  background: #fff;
+  background: #000;
   padding-bottom: 50px;
 }
