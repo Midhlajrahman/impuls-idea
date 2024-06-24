@@ -8058,10 +8058,11 @@ h7-tabs-ul > li > div {
     grid-row: auto;
   }
   .core-features-card {
-      min-height: 290px;
+    height: 290px;
+  }
   }
   .features-single{
-    max-height: 330px;
+  height: 455px;
   }
   .service_card_vr {
     grid-column: 9 / 13;
@@ -8087,8 +8088,18 @@ h7-tabs-ul > li > div {
   background-color: #fff !important;
 }
 .nav-pills .nav-link {
-  background: #fff;
+  /* background: #fff; */
   border: 0;
   border-radius: 0.25rem;
   width: 100% !important;
+}
+
+@media only screen and (min-width: 1260px) {
+.product-section img{
+  padding-left: 50px !important;
+}}
+
+.product-card{
+  background: #fff;
+  padding-bottom: 50px;
 }

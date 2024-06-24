@@ -184,41 +184,91 @@
         },
       ],
     });
+
     $(".testimonial-g-slide-product").slick({
       autoplay: true,
+      centerMode: true,
+      centerPadding: "250px",
       speed: 500,
       autoplaySpeed: 3500,
-      slidesToShow: 1,
+      slidesToShow: 3,
       slidesToScroll: 1,
       pauseOnHover: true,
+      cssEase: "linear",
       infinite: true,
       dots: true,
-      arrows: false,
-      cssEase: "ease",
+      arrows: true,
+      prevArrow: '<button class="slick-prev custom-Prev-btn">Prev <i class="fa-solid fa-arrow-left"></i></button>',
+      nextArrow: '<button class="slick-next custom-Next-btn">Next <i class="fa-solid fa-arrow-right"></i></button>',
       draggable: true,
-      prevArrow: '<button class="Prev">Prev</button>',
-      nextArrow: '<button class="Prev">Next</button>',
       responsive: [
         {
           breakpoint: 1500,
           settings: {
             slidesToShow: 1,
+            centerPadding: "60px",
           },
         },
         {
-          breakpoint: 992,
+          breakpoint: 1025,
           settings: {
             slidesToShow: 1,
+            centerPadding: "60px",
           },
         },
         {
           breakpoint: 768,
           settings: {
             slidesToShow: 1,
+            centerPadding: "0px",
+          },
+        },
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 1,
+            centerPadding: "0px",
           },
         },
       ],
     });
+  
+    // $(".testimonial-g-slide-product").slick({
+    //   autoplay: true,
+    //   speed: 500,
+    //   autoplaySpeed: 3500,
+    //   slidesToShow: 1,
+    //   slidesToScroll: 1,
+    //   pauseOnHover: true,
+    //   infinite: true,
+    //   dots: true,
+    //   arrows: false,
+    //   cssEase: "ease",
+    //   draggable: true,
+    //   prevArrow: '<button class="Prev">Prev</button>',
+    //   nextArrow: '<button class="Prev">Next</button>',
+    //   responsive: [
+    //     {
+    //       breakpoint: 1500,
+    //       settings: {
+    //         slidesToShow: 1,
+    //       },
+    //     },
+    //     {
+    //       breakpoint: 992,
+    //       settings: {
+    //         slidesToShow: 1,
+    //       },
+    //     },
+    //     {
+    //       breakpoint: 768,
+    //       settings: {
+    //         slidesToShow: 1,
+    //       },
+    //     },
+    //   ],
+    // });
+    
     /*====================================
 		Aos Animate JS
 	======================================*/
@@ -253,7 +303,7 @@
       {
         breakpoint: 1500,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 1,
           centerPadding: "60px",
         },
       },

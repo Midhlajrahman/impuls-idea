@@ -917,3 +917,38 @@ img:not([draggable]) {
     margin-top: 1px !important;
   }
   }
+  
+/* .custom-Prev-btn{
+  background: #fff;
+  border-radius :10px;
+} */
+  .slick-prev, .slick-next {
+    position: absolute;
+    top: 0;
+    font-size: 16px;
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+  }
+  .slick-prev {
+    left: 10px;
+  }
+  .slick-next {
+    right: 10px;
+  }
+  .slick-prev i, .slick-next i {
+    margin-left: 5px;
+  }
+  .slick-arrow-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    top: 0;
+  }
+  .slick-list {
+    margin-top: 40px; /* Adjust to make space for the arrows */
+  }
