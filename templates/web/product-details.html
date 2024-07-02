@@ -74,38 +74,44 @@
         <div class="col-12">
             <div class="h6-core-features-slider">
                 {% for feature in feature_slide %}
-                <div class="core-features-card-wrapper">
-                    <div class="core-features-card">
-                        <div class="core-features-icon">
-                            <img src="{{ feature.icon_image.url }}" alt="" class="features-icon">
-                        </div>
-                        <h1 class="core-features-card-title">{{ feature.title }}</h1>
-                        <p class="core-features-card-text">{{ feature.description }}</p>
-                        <div class="core-features-card-btn">
-                            <a href="#" class="h6-btn-transparent"></a>
+                    {% if forloop.counter|divisibleby:2 %}
+                    <div class="core-features-card-wrapper">
+                        <div class="core-features-card">
+                            <div class="core-features-icon">
+                                <img src="{{ feature.icon_image.url }}" alt="" class="features-icon">
+                            </div>
+                            <h1 class="core-features-card-title">{{ feature.title }}</h1>
+                            <p class="core-features-card-text">{{ feature.description }}</p>
+                            <div class="core-features-card-btn">
+                                <a href="#" class="h6-btn-transparent"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    {% endif %}
                 {% endfor %}
             </div>
             <div class="h6-core-features-slider-2 pt-24" dir="rtl">
-                {% for feature in feature_slide|slice:":4" %}
-                <div class="core-features-card-wrapper" dir="ltr">
-                    <div class="core-features-card">
-                        <div class="core-features-icon">
-                            <img src="{{ feature.icon_image.url }}" alt="" class="features-icon">
-                        </div>
-                        <h1 class="core-features-card-title">{{ feature.title }}</h1>
-                        <p class="core-features-card-text">{{ feature.description }}</p>
-                        <div class="core-features-card-btn">
-                            <a href="#" class="h6-btn-transparent"></a>
+                {% for feature in feature_slide %}
+                    {% if not forloop.counter|divisibleby:2 %}
+                    <div class="core-features-card-wrapper" dir="ltr">
+                        <div class="core-features-card">
+                            <div class="core-features-icon">
+                                <img src="{{ feature.icon_image.url }}" alt="" class="features-icon">
+                            </div>
+                            <h1 class="core-features-card-title">{{ feature.title }}</h1>
+                            <p class="core-features-card-text">{{ feature.description }}</p>
+                            <div class="core-features-card-btn">
+                                <a href="#" class="h6-btn-transparent"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
     </div>
+
+    
     </section>
     {% endif %}
 
